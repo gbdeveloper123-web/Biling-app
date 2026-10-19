@@ -1,0 +1,6 @@
+{
+  "name": "VYAPRIX",
+  "description": "Run Your Business Smarter - GST Billing, Inventory, Sales, Khata Udhaar, Purchases, Reports, and AI Business Assistant for Indian businesses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

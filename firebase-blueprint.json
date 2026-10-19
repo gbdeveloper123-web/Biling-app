@@ -1,0 +1,106 @@
+{
+  "entities": {
+    "Merchant": {
+      "title": "Merchant",
+      "description": "Store owner or multi-tenant business user profile",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "storeName": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": ["super_admin", "merchant", "staff"]
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      },
+      "required": ["id", "email", "storeName"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Store inventory product item",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "merchantId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "stock": {
+          "type": "number"
+        },
+        "category": {
+          "type": "string"
+        },
+        "taxRate": {
+          "type": "number"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      },
+      "required": ["id", "merchantId", "name", "price"]
+    },
+    "Invoice": {
+      "title": "Invoice",
+      "description": "Sales POS transaction invoice document",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "merchantId": {
+          "type": "string"
+        },
+        "invoiceNumber": {
+          "type": "string"
+        },
+        "customerName": {
+          "type": "string"
+        },
+        "grandTotal": {
+          "type": "number"
+        },
+        "paymentStatus": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      },
+      "required": ["id", "merchantId", "invoiceNumber", "grandTotal"]
+    }
+  },
+  "firestore": {
+    "/merchants/{merchantId}": {
+      "schema": "Merchant",
+      "description": "Merchant business profiles"
+    },
+    "/merchants/{merchantId}/products/{productId}": {
+      "schema": "Product",
+      "description": "Merchant inventory products"
+    },
+    "/merchants/{merchantId}/invoices/{invoiceId}": {
+      "schema": "Invoice",
+      "description": "Merchant POS sales invoices"
+    }
+  }
+}

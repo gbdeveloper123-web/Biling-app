@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VYAPRIX - Run Your Business Smarter | GST Billing & Management</title>
+    <meta name="description" content="VYAPRIX - Run Your Business Smarter - GST Billing, Inventory, Sales, Khata Udhaar, Purchases, Reports, and AI Business Assistant for Indian businesses." />
+    <meta property="og:title" content="VYAPRIX - Run Your Business Smarter" />
+    <meta property="og:description" content="GST Billing, Inventory, Sales, Khata Udhaar, Purchases, Reports, and AI Business Assistant for Indian businesses." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+      try {
+        const mode = localStorage.getItem('shopmate_business_v1_theme_mode');
+        const isSystemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (mode === 'dark' || (mode === 'auto' && isSystemDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body class="bg-white dark:bg-[#12181F] text-[#2D3436] dark:text-[#F5F6FA] antialiased font-sans selection:bg-[#0984E3] selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

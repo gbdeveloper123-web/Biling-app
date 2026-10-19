@@ -1,0 +1,538 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* VYAPRIX Primary Brand Palette */
+  --color-brand-blue: #0984E3;
+  --color-brand-blue-hover: #0770C2;
+  --color-brand-dark: #1E272E;
+  --color-brand-dark-surface: #26343D;
+  --color-brand-card-dark: #2F3E46;
+  --color-brand-border-dark: #485460;
+  --color-brand-cyan: #00CEC9;
+  --color-brand-pale-cyan: #81ECEC;
+  --color-brand-soft-blue: #74B9FF;
+  --color-brand-bg: #FFFFFF;
+  --color-brand-border: #DFE6E9;
+  --color-brand-text: #2D3436;
+  --color-brand-text-muted: #636E72;
+  --color-brand-text-dark-muted: #B2BEC3;
+  --color-brand-success: #00B894;
+  --color-brand-warning: #FDCB6E;
+  --color-brand-error: #D63031;
+
+  /* Map default Tailwind color scales to VYAPRIX Design System */
+  --color-indigo-50: #FFFFFF;
+  --color-indigo-100: #E7F3FB;
+  --color-indigo-200: #DFE6E9;
+  --color-indigo-400: #74B9FF;
+  --color-indigo-500: #0984E3;
+  --color-indigo-600: #0984E3;
+  --color-indigo-700: #0770C2;
+  --color-indigo-800: #1E272E;
+  --color-indigo-900: #1E272E;
+  --color-indigo-950: #1E272E;
+
+  --color-blue-50: #FFFFFF;
+  --color-blue-100: #E7F3FB;
+  --color-blue-200: #DFE6E9;
+  --color-blue-400: #74B9FF;
+  --color-blue-500: #0984E3;
+  --color-blue-600: #0984E3;
+  --color-blue-700: #0770C2;
+
+  --color-slate-50: #FFFFFF;
+  --color-slate-100: #F8FAFC;
+  --color-slate-200: #DFE6E9;
+  --color-slate-300: #DFE6E9;
+  --color-slate-400: #B2BEC3;
+  --color-slate-500: #636E72;
+  --color-slate-600: #636E72;
+  --color-slate-700: #2D3436;
+  --color-slate-800: #26343D;
+  --color-slate-900: #2F3E46;
+  --color-slate-950: #1E272E;
+
+  --color-emerald-500: #00B894;
+  --color-emerald-600: #00B894;
+  --color-emerald-700: #009879;
+  --color-green-500: #00B894;
+  --color-green-600: #00B894;
+
+  --color-amber-500: #FDCB6E;
+  --color-amber-600: #E1A73E;
+  --color-yellow-500: #FDCB6E;
+
+  --color-rose-500: #D63031;
+  --color-rose-600: #D63031;
+  --color-red-500: #D63031;
+  --color-red-600: #D63031;
+
+  --color-cyan-500: #00CEC9;
+  --color-cyan-600: #00CEC9;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    background-color: #FFFFFF;
+    color: #2D3436;
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  html.dark,
+  html.dark body,
+  html.dark #root {
+    background-color: #12181F;
+    color: #F5F6FA;
+  }
+}
+
+/* VYAPRIX Global Design System Tokens & Utility Classes */
+.vy-view-container {
+  width: 100%;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 1rem 1.5rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .vy-view-container {
+    padding: 1.5rem 1.5rem 2rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .vy-view-container {
+    padding: 1.75rem 2rem 2.5rem 2rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .vy-view-container {
+    padding: 2rem 2.5rem 3rem 2.5rem;
+  }
+}
+
+/* Standardized Table Row Heights (44px - 52px) */
+.vy-table-row {
+  height: 48px;
+  border-bottom: 1px solid #DFE6E9;
+  transition: background-color 0.15s ease;
+}
+
+.dark .vy-table-row {
+  border-bottom-color: #2A3642;
+}
+
+.vy-table-row:hover {
+  background-color: #F8FAFC;
+}
+
+.dark .vy-table-row:hover {
+  background-color: #1E272E;
+}
+
+/* Standard Form Input Sizing */
+.vy-input-field {
+  height: 42px;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-size: 0.875rem;
+  border-radius: 0.75rem;
+  border: 1px solid #DFE6E9;
+  background-color: #FFFFFF;
+  color: #2D3436;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dark .vy-input-field {
+  border-color: #2A3642;
+  background-color: #182026;
+  color: #F5F6FA;
+}
+
+.vy-input-field:focus {
+  border-color: #0984E3;
+  box-shadow: 0 0 0 2px rgba(9, 132, 227, 0.2);
+}
+
+/* Standard Action Button Sizing */
+.vy-btn-primary {
+  height: 42px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  background-color: #0984E3;
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+  cursor: pointer;
+}
+
+.vy-btn-primary:hover {
+  background-color: #0770C2;
+}
+
+.vy-btn-primary:active {
+  transform: scale(0.97);
+}
+
+.vy-btn-secondary {
+  height: 40px;
+  padding-left: 0.875rem;
+  padding-right: 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  background-color: #F5F6FA;
+  color: #2D3436;
+  border: 1px solid #DFE6E9;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+  cursor: pointer;
+}
+
+.dark .vy-btn-secondary {
+  background-color: #202B33;
+  color: #F5F6FA;
+  border-color: #2A3642;
+}
+
+.vy-btn-secondary:hover {
+  background-color: #E9ECEF;
+}
+
+.dark .vy-btn-secondary:hover {
+  background-color: #2A3642;
+}
+
+.vy-btn-secondary:active {
+  transform: scale(0.97);
+}
+
+/* Custom Print Rules for authentic Indian GST Bills */
+@media print {
+  html,
+  body {
+    background: #ffffff !important;
+    color: #1E272E !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide app chrome during printing */
+  header,
+  aside,
+  nav,
+  button,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Force printable invoice to fill page cleanly */
+  #printable-invoice {
+    border: none !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #1E272E !important;
+    page-break-inside: avoid;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+}
+
+/* ========================================================================= */
+/* VYAPRIX FLUID MOTION & ANIMATION SYSTEM                                  */
+/* ========================================================================= */
+
+@keyframes viewFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  70% {
+    transform: scale(1.01) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes drawerSlideRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes drawerSlideLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(9, 132, 227, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(9, 132, 227, 0);
+  }
+}
+
+@keyframes checkmarkPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmerWave {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-view-fade-in {
+  animation: viewFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-modal-pop {
+  animation: modalPopIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-drawer-right {
+  animation: drawerSlideRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform;
+}
+
+.animate-drawer-left {
+  animation: drawerSlideLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.animate-checkmark-pop {
+  animation: checkmarkPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmerWave 1.8s infinite;
+}
+
+/* Micro-interaction interactive styles */
+.vy-interactive-card {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.vy-interactive-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+
+.vy-btn-animated {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.vy-btn-animated:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(9, 132, 227, 0.25);
+}
+
+.vy-btn-animated:active {
+  transform: scale(0.96);
+}
+
+/* ========================================================================= */
+/* SCROLL-TRIGGERED & FLYING / FLOATING MOTION SYSTEM                        */
+/* ========================================================================= */
+
+@keyframes flyUpSoar {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) translateX(0px) scale(0.5) rotate(-8deg);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-20px) translateX(calc(var(--sway, 20px) * 0.5)) scale(1.06) rotate(4deg);
+  }
+  65% {
+    opacity: 0.95;
+    transform: translateY(-160px) translateX(calc(var(--sway, 20px) * -0.6)) scale(1) rotate(-4deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-320px) translateX(var(--sway, 20px)) scale(0.75) rotate(8deg);
+  }
+}
+
+@keyframes floatLevitate {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1.5deg);
+  }
+}
+
+@keyframes floatLevitateReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-1.5deg);
+  }
+}
+
+@keyframes iconFlyBurst {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    transform: translateY(-12px) scale(1.25) rotate(10deg);
+  }
+  70% {
+    transform: translateY(3px) scale(0.95) rotate(-4deg);
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+.animate-fly-up-soar {
+  animation: flyUpSoar var(--duration, 2.2s) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.animate-float-levitate {
+  animation: floatLevitate 3.6s ease-in-out infinite;
+}
+
+.animate-float-levitate-reverse {
+  animation: floatLevitateReverse 4.2s ease-in-out infinite;
+}
+
+/* Always-visible Scroll Motion Classes (Zero Blank/Hidden Space) */
+@keyframes scrollPopVisible {
+  0% {
+    transform: translateY(14px) scale(0.985);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes scrollSlideLeftVisible {
+  0% {
+    transform: translateX(-18px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scrollSlideRightVisible {
+  0% {
+    transform: translateX(18px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.vy-scroll-reveal {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.vy-scroll-reveal.vy-in-view {
+  opacity: 1;
+  animation: scrollPopVisible 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.vy-scroll-fly-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.vy-scroll-fly-left.vy-in-view {
+  opacity: 1;
+  animation: scrollSlideLeftVisible 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.vy-scroll-fly-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.vy-scroll-fly-right.vy-in-view {
+  opacity: 1;
+  animation: scrollSlideRightVisible 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.vy-scroll-reveal.vy-in-view .vy-card-icon-box {
+  animation: iconFlyBurst 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
